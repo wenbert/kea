@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -7,4 +8,10 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'My App',
+      filename: 'assets/admin.html',
+    }),
+  ],
 };
