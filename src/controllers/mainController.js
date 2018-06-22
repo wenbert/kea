@@ -10,8 +10,19 @@ function mainController(nav) {
       },
     );
   }
+
+  function getAbout(req, res) {
+    res.render(
+      'pages/about',
+      {
+        title: 'About Us',
+        nav,
+      },
+    );
+  }
   return {
     getIndex,
+    getAbout,
   };
 }
 

@@ -1,5 +1,4 @@
 const express = require('express');
-
 const chalk = require('chalk');
 const debug = require('debug')('app');
 const morgan = require('morgan');
@@ -11,6 +10,8 @@ const port = process.env.PORT || 3000;
 app.use(morgan('tiny'));
 
 app.use(express.static(path.join(__dirname, '/public/')));
+app.use('/css', express.static(path.join(__dirname, 'node_modules/materialize-css/dist/css')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules//materialize-css/dist/js')));
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
@@ -21,15 +22,6 @@ const nav = [
 const mainRouter = require('./src/routes/mainRoutes.js')(nav);
 
 app.use('/', mainRouter);
-
-app.get('/', (req, res) => {
-  res.render(
-    'index',
-    {
-      title: 'Kea',
-    },
-  );
-});
 
 app.listen(port, () => {
   debug(`listening on port ${chalk.green(port)}`);

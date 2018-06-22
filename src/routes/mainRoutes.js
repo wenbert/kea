@@ -5,9 +5,12 @@ const mainController = require('../controllers/mainController.js');
 const mainRouter = express.Router();
 
 function router(nav) {
-  const { getIndex } = mainController(nav);
+  const { getIndex, getAbout } = mainController(nav);
   mainRouter.route('/')
     .get(getIndex);
+
+  mainRouter.route('/pages/about')
+    .get(getAbout);
   return mainRouter;
 }
 
