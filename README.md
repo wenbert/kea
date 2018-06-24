@@ -14,3 +14,5 @@ A work in progress.
 1. Login.
 1. Admin Pages.
 1. Setup Webpack, Babel, VueJS or React.
+1. Tests
+1. Deployment
