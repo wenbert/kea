@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const chalk = require('chalk');
 const debug = require('debug')('app');
@@ -15,6 +16,7 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules//materialize-cs
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
+
 
 const nav = [
   { link: '/', title: 'Home' },

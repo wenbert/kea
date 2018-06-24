@@ -7,7 +7,10 @@ $ npm install
 $ npm start
 ```
 
-Work in progress.
+A work in progress.
 
 ## TODO
-Setup Webpack, Babel, VueJS or React.
+
+1. Login.
+1. Admin Pages.
+1. Setup Webpack, Babel, VueJS or React.
