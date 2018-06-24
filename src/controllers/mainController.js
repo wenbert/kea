@@ -20,9 +20,21 @@ function mainController(nav) {
       },
     );
   }
+
+  function getLogin(req, res) {
+    res.render(
+      'pages/login',
+      {
+        title: 'Login',
+        nav,
+      },
+    );
+  }
+
   return {
     getIndex,
     getAbout,
+    getLogin,
   };
 }
 

@@ -20,10 +20,13 @@ const nav = [
   { link: '/', title: 'Home' },
   { link: '/pages/about', title: 'About' },
   { link: '/blog', title: 'Blog' },
+  { link: '/pages/login', title: 'Login' },
 ];
 const mainRouter = require('./src/routes/mainRoutes.js')(nav);
+const blogRouter = require('./src/routes/blogRoutes.js')(nav);
 
 app.use('/', mainRouter);
+app.use('/blog', blogRouter);
 
 app.listen(port, () => {
   debug(`listening on port ${chalk.green(port)}`);
