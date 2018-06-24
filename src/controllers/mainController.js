@@ -15,7 +15,7 @@ function mainController(nav) {
     res.render(
       'pages/about',
       {
-        title: 'About Us',
+        title: 'About',
         nav,
       },
     );

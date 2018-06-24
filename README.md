@@ -1,4 +1,4 @@
-# Kea CMS
+# Kea
 
 ## To start:
 
@@ -7,8 +7,7 @@ $ npm install
 $ npm start
 ```
 
-Work in progress...
-See: https://www.youtube.com/watch?v=pKd0Rpw7O48
+Work in progress.
 
 ## TODO
 Setup Webpack, Babel, VueJS or React.

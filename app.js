@@ -18,6 +18,8 @@ app.set('view engine', 'ejs');
 
 const nav = [
   { link: '/', title: 'Home' },
+  { link: '/pages/about', title: 'About' },
+  { link: '/blog', title: 'Blog' },
 ];
 const mainRouter = require('./src/routes/mainRoutes.js')(nav);
 
