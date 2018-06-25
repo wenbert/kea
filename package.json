@@ -21,6 +21,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.10",
     "materialize-css": "^1.0.0-rc.1",
     "mongodb": "^3.0.10",
