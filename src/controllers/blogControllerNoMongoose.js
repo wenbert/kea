@@ -1,12 +1,21 @@
+/**
+ * This file contains some old code connecting and querying MongoDB
+ * without using models from Mongoose
+ */
+
 const debug = require('debug')('app:mainController');
-const { ObjectID } = require('mongodb');
-const Post = require('../models/post');
+const { MongoClient, ObjectID } = require('mongodb');
 
 function blogController(nav) {
   function getPosts(req, res) {
     (async function mongo() {
+      let client;
       try {
-        const posts = await Post.find();
+        client = await MongoClient.connect(process.env.MONGODB_HOST);
+        const db = client.db(process.env.MONGODB_DB);
+        const collection = await db.collection('posts');
+        const posts = await collection.find().toArray();
+
         res.render(
           'blog/index',
           {
@@ -18,14 +27,21 @@ function blogController(nav) {
       } catch (err) {
         debug(err.stack);
       }
+
+      client.close();
     }());
   }
 
   function getPost(req, res) {
     const { id } = req.params;
     (async function mongo() {
+      let client;
       try {
-        const post = await Post.findOne({ _id: new ObjectID(id) });
+        client = await MongoClient.connect(process.env.MONGODB_HOST);
+        const db = client.db(process.env.MONGODB_DB);
+        const collection = await db.collection('posts');
+        const post = await collection.findOne({ _id: new ObjectID(id) });
+
         res.render(
           'blog/post',
           {
@@ -37,6 +53,7 @@ function blogController(nav) {
       } catch (err) {
         debug(err.stack);
       }
+      client.close();
     }());
   }
 

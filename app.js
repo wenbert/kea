@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 
+const User = require('./src/models/user');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -32,6 +34,24 @@ const blogRouter = require('./src/routes/blogRoutes.js')(nav);
 
 app.use('/', mainRouter);
 app.use('/blog', blogRouter);
+
+/**
+ * Create a sample user
+ * Later we will query this to create JWT, etc.
+ */
+// app.get('/setup', (req, res) => {
+//   const user = new User({
+//     username: 'wenbert',
+//     password: 'password to hash',
+//     admin: true,
+//   });
+//   user.save((err) => {
+//     if (err) throw err;
+//
+//     console.log('User saved successfully');
+//     res.json({ success: true });
+//   });
+// });
 
 app.listen(port, () => {
   debug(`listening on port ${chalk.green(port)}`);
