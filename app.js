@@ -8,6 +8,9 @@ const bodyParser = require('body-parser');
 // const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+// const bcrypt = require('bcrypt');
+// const User = require('./src/models/user');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -45,17 +48,25 @@ app.use('/login', loginRouter);
  * The passwords needs to be hashed
  */
 // app.get('/setup', (req, res) => {
-//   const user = new User({
-//     username: 'wenbert',
-//     password: 'test',
-//     admin: true,
-//   });
-//   user.save((err) => {
-//     if (err) throw err;
+//   (async function hashAndSaveUser() {
+//     try {
+//       const salt = await bcrypt.genSalt(10);
+//       const hashedPassword = await bcrypt.hash('test', salt);
+//       const user = new User({
+//         username: 'wenbert',
+//         password: hashedPassword,
+//         admin: true,
+//       });
+//       user.save((err) => {
+//         if (err) throw err;
 //
-//     console.log('User saved successfully');
-//     res.json({ success: true });
-//   });
+//         console.log('User saved successfully');
+//         res.json({ success: true });
+//       });
+//     } catch (err) {
+//       debug(err.stack);
+//     }
+//   }());
 // });
 
 app.listen(port, () => {
