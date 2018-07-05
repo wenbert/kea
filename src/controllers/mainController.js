@@ -1,4 +1,5 @@
 const debug = require('debug')('app:mainController');
+// const middleware = require('../middlewares/verifyToken');
 
 function mainController(nav) {
   function getIndex(req, res) {
@@ -32,6 +33,7 @@ function mainController(nav) {
   }
 
   return {
+    // middleware,
     getIndex,
     getAbout,
     getLogin,

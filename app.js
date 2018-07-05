@@ -14,6 +14,8 @@ const session = require('express-session');
 const app = express();
 const port = process.env.PORT || 3000;
 
+const verifyToken = require('./src/middlewares/verifyToken');
+
 app.use(morgan('tiny'));
 app.use(session({ secret: process.env.SECRET }));
 
