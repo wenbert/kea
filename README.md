@@ -17,7 +17,7 @@ A work in progress.
    1. If confirmed, create the JSON Web Token. You can include access level, name, etc. But never the password.
    1. Once you have the JWT, you can pass it around requests
    1. There will be a middleware to check this token
-   1. JWT will be stored in client or passed along requests (???). ie: API but for this instance, we just store it in cookie (http-only) then read from it.
+   1. JWT will be stored in client or passed along requests (???). But for this instance, we just store it in cookie (http-only) then read from it.
 
 1. Admin Pages.
 1. Setup Webpack, Babel, VueJS or React.
