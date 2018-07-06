@@ -5,7 +5,7 @@ const debug = require('debug')('app');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 // const bcrypt = require('bcrypt');
@@ -14,10 +14,11 @@ const session = require('express-session');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const verifyToken = require('./src/middlewares/verifyToken');
-
 app.use(morgan('tiny'));
 app.use(session({ secret: process.env.SECRET }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -18,6 +18,13 @@ function loginController() {
             expiresIn: process.env.JWT_TOKEN_EXPIRES_IN,
           });
 
+          // Store in cookie
+          debug('Setting cookie token.');
+          // debug(token);
+          res.cookie('token', token, { maxAge: 86400, httpOnly: true });
+          // res.cookie('token', token, { maxAge: 86400 });
+          debug('Done setting cookie for token.');
+
           res.json({
             success: true,
             message: 'Here is the token',

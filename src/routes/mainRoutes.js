@@ -4,9 +4,10 @@ const mainController = require('../controllers/mainController.js');
 
 const mainRouter = express.Router();
 
+// const middleware = require('../middlewares/verifyToken');
+
 function router(nav) {
   const {
-    // middleware,
     getIndex,
     getAbout,
     getLogin,
