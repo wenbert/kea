@@ -11,6 +11,22 @@ module.exports = function verify(req, res, next) {
         return res.json({ error: true });
       }
       req.decoded = decoded;
+      debug('Welcome decoded JWT: ');
+      debug(req.decoded.username);
+      debug(req.decoded.admin);
+      debug('End decoded JWT.');
+
+      // TODO verify expiry
+
+      // TODO check if user exists in DB?
+
+      // Or....
+
+      // TODO what more checks can we do?
+      // Do we store the token generated in some kind of persisten storage?
+      // And check in persistent storage if token exists there?
+      // ie: Redis, MySQL, MongoDB
+
       debug('Congrats token has been verified!');
       next();
       return true;

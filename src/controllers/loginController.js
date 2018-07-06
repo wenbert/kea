@@ -12,6 +12,7 @@ function loginController() {
         const matches = await bcrypt.compare(password, user.password);
         if (matches) {
           const payload = {
+            username: user.username,
             admin: user.admin,
           };
           const token = jwt.sign(payload, process.env.JWT_SECRET, {
