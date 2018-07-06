@@ -1,5 +1,20 @@
 import $ from 'jquery';
 
-(function sayHello() {
-  $('#btn_login').text('jQuery did this! Todo, axios post to login url');
+const axios = require('axios');
+
+(async function login() {
+  $('#btn_login').on('click', async (event) => {
+    try {
+      const response = await axios.post('/login', {
+        username: $('#username').val(),
+        password: $('#password').val(),
+      });
+
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+    event.preventDefault();
+    return false;
+  });
 }());
