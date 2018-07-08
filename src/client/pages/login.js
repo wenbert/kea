@@ -10,6 +10,10 @@ const axios = require('axios');
         password: $('#password').val(),
       });
 
+      // Temprarily redirect to blog
+      document.location.href = '/blog';
+
+
       console.log(response);
     } catch (error) {
       console.error(error);
